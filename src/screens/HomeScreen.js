@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FlatList, StyleSheet, View } from 'react-native';
 import PokemonCard from '../components/PokemonCard';
 import StateMessage from '../components/StateMessage';

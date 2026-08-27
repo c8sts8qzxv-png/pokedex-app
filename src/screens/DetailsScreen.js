@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
 import StateMessage from '../components/StateMessage';
 import TypeBadge from '../components/TypeBadge';
