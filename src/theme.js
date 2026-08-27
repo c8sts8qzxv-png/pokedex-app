@@ -1,5 +1,6 @@
 // Flat colour palette used across the app.
-// Identity red + neutral greys for chrome, one flat colour per Pokemon type.
+// fire, water, flying and grass are sampled from the reference design; the
+// remaining types are not shown in it and follow the same flat treatment.
 
 export const colors = {
   primary: '#DC0A2D',
@@ -19,10 +20,10 @@ export const typeColors = {
   electric: '#F9CF30',
   fairy: '#E69EAC',
   fighting: '#C12239',
-  fire: '#F57D31',
-  flying: '#A891EC',
+  fire: '#FF9D55',
+  flying: '#89AAE3',
   ghost: '#70559B',
-  grass: '#74CB48',
+  grass: '#63BC5A',
   ground: '#DEC16B',
   ice: '#9AD6DF',
   normal: '#AAA67F',
@@ -30,7 +31,7 @@ export const typeColors = {
   psychic: '#FB5584',
   rock: '#B69E31',
   steel: '#B7B9D0',
-  water: '#6493EB',
+  water: '#5090D6',
 };
 
 export function colorForType(type) {

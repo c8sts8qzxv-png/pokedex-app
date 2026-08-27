@@ -40,28 +40,32 @@ export default function DetailsScreen({ route, navigation }) {
   return (
     <ScrollView style={styles.container} contentContainerStyle={styles.content}>
       <View style={[styles.header, { backgroundColor: colorForType(details.types[0]) }]}>
-        <Text style={styles.number}>#{String(details.number).padStart(3, '0')}</Text>
         <Image source={{ uri: details.image }} style={styles.image} resizeMode="contain" />
       </View>
 
-      <Text style={styles.name}>{details.name}</Text>
+      <View style={styles.body}>
+        <Text style={styles.name}>{details.name}</Text>
+        <Text style={styles.number}>N\u00ba{String(details.number).padStart(3, '0')}</Text>
 
-      <Text style={styles.label}>Type</Text>
-      <View style={styles.typeRow}>
-        {details.types.map((type) => (
-          <TypeBadge key={type} type={type} />
-        ))}
-      </View>
-
-      <View style={styles.measureRow}>
-        <View style={styles.measure}>
-          <Text style={styles.measureValue}>{details.heightM.toFixed(1)} m</Text>
-          <Text style={styles.measureLabel}>Height</Text>
+        <View style={styles.typeRow}>
+          {details.types.map((type) => (
+            <TypeBadge key={type} type={type} />
+          ))}
         </View>
-        <View style={styles.divider} />
-        <View style={styles.measure}>
-          <Text style={styles.measureValue}>{details.weightKg.toFixed(1)} kg</Text>
-          <Text style={styles.measureLabel}>Weight</Text>
+
+        <View style={styles.measureRow}>
+          <View style={styles.measure}>
+            <Text style={styles.measureLabel}>Height</Text>
+            <View style={styles.measureBox}>
+              <Text style={styles.measureValue}>{details.heightM.toFixed(1)} m</Text>
+            </View>
+          </View>
+          <View style={styles.measure}>
+            <Text style={styles.measureLabel}>Weight</Text>
+            <View style={styles.measureBox}>
+              <Text style={styles.measureValue}>{details.weightKg.toFixed(1)} kg</Text>
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>
@@ -71,7 +75,7 @@ export default function DetailsScreen({ route, navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: colors.background,
+    backgroundColor: colors.surface,
   },
   content: {
     paddingBottom: spacing.xl,
@@ -80,63 +84,57 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingVertical: spacing.lg,
   },
-  number: {
-    alignSelf: 'flex-start',
-    marginLeft: spacing.lg,
-    color: '#FFFFFF',
-    fontSize: 14,
-    fontWeight: '600',
-  },
   image: {
     width: 200,
     height: 200,
   },
+  body: {
+    backgroundColor: colors.surface,
+    borderTopLeftRadius: radius.md,
+    borderTopRightRadius: radius.md,
+    marginTop: -spacing.lg,
+    paddingTop: spacing.xl,
+    paddingHorizontal: spacing.lg,
+  },
   name: {
-    fontSize: 24,
+    fontSize: 28,
     fontWeight: '700',
     color: colors.textDark,
-    textAlign: 'center',
     textTransform: 'capitalize',
-    marginTop: spacing.lg,
   },
-  label: {
-    fontSize: 13,
+  number: {
+    fontSize: 15,
     color: colors.textMedium,
-    textAlign: 'center',
-    marginTop: spacing.lg,
-    marginBottom: spacing.sm,
+    marginTop: spacing.xs,
   },
   typeRow: {
     flexDirection: 'row',
-    justifyContent: 'center',
+    marginTop: spacing.md,
   },
   measureRow: {
     flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: colors.surface,
-    borderRadius: radius.md,
-    marginHorizontal: spacing.lg,
     marginTop: spacing.xl,
-    paddingVertical: spacing.lg,
   },
   measure: {
     flex: 1,
-    alignItems: 'center',
-  },
-  divider: {
-    width: 1,
-    height: 32,
-    backgroundColor: colors.border,
-  },
-  measureValue: {
-    fontSize: 18,
-    fontWeight: '600',
-    color: colors.textDark,
+    marginRight: spacing.md,
   },
   measureLabel: {
-    fontSize: 13,
+    fontSize: 12,
     color: colors.textMedium,
-    marginTop: spacing.xs,
+    textTransform: 'uppercase',
+    marginBottom: spacing.xs,
+  },
+  measureBox: {
+    borderWidth: 1,
+    borderColor: colors.border,
+    borderRadius: radius.md,
+    paddingVertical: spacing.md,
+    alignItems: 'center',
+  },
+  measureValue: {
+    fontSize: 17,
+    fontWeight: '600',
+    color: colors.textDark,
   },
 });

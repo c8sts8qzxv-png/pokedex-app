@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
-import { colorForType, radius, spacing } from '../theme';
+import { colorForType, colors, spacing } from '../theme';
 
+// Full pill, matching the reference design.
 export default function TypeBadge({ type }) {
   return (
     <View style={[styles.badge, { backgroundColor: colorForType(type) }]}>
@@ -11,13 +12,13 @@ export default function TypeBadge({ type }) {
 
 const styles = StyleSheet.create({
   badge: {
-    paddingHorizontal: spacing.md,
+    paddingHorizontal: spacing.lg,
     paddingVertical: spacing.xs,
-    borderRadius: radius.sm,
+    borderRadius: 999,
     marginRight: spacing.sm,
   },
   label: {
-    color: '#FFFFFF',
+    color: colors.surface,
     fontSize: 13,
     fontWeight: '600',
     textTransform: 'capitalize',
