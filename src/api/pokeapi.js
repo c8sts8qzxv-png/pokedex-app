@@ -11,12 +11,12 @@ function idFromUrl(url) {
   return Number(parts[parts.length - 1]);
 }
 
-export function artworkUrl(id) {
+function artworkUrl(id) {
   return `${ARTWORK_URL}/${id}.png`;
 }
 
-export async function fetchPokemonList(limit = 30, offset = 0) {
-  const response = await fetch(`${BASE_URL}/pokemon?limit=${limit}&offset=${offset}`);
+export async function fetchPokemonList(limit = 30) {
+  const response = await fetch(`${BASE_URL}/pokemon?limit=${limit}`);
   if (!response.ok) {
     throw new Error(`Request failed with status ${response.status}`);
   }
