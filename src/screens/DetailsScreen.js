@@ -45,7 +45,7 @@ export default function DetailsScreen({ route, navigation }) {
 
       <View style={styles.body}>
         <Text style={styles.name}>{details.name}</Text>
-        <Text style={styles.number}>N\u00ba{String(details.number).padStart(3, '0')}</Text>
+        <Text style={styles.number}>Nº{String(details.number).padStart(3, '0')}</Text>
 
         <View style={styles.typeRow}>
           {details.types.map((type) => (
