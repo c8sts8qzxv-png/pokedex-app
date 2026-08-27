@@ -1,4 +1,5 @@
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import DrawerButton from '../components/DrawerButton';
 import HomeScreen from '../screens/HomeScreen';
 import DetailsScreen from '../screens/DetailsScreen';
 import { colors } from '../theme';
@@ -15,7 +16,11 @@ export default function HomeStackNavigator() {
         headerTitleStyle: { fontWeight: '700' },
       }}
     >
-      <Stack.Screen name="PokemonList" component={HomeScreen} options={{ title: 'Pokedex' }} />
+      <Stack.Screen
+        name="PokemonList"
+        component={HomeScreen}
+        options={{ title: 'Pokedex', headerLeft: () => <DrawerButton /> }}
+      />
       <Stack.Screen name="Details" component={DetailsScreen} options={{ title: 'Details' }} />
     </Stack.Navigator>
   );
